@@ -1,0 +1,12 @@
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+
+@import "tailwindcss";
+/* tailwind.config.{js,cjs,mjs,ts,cts,mts}; */
+/* "files.associations": {
+  "*.css": "tailwindcss"
+}, */
+/* "editor.quickSuggestions": {
+  "strings": "on"
+} */
