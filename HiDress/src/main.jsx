@@ -1,12 +1,28 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode , React} from 'react'
+import ReactDOM from 'react-dom/client'
+import { ChakraProvider } from "@chakra-ui/react"
+import {Provider} from 'react-redux'
+import store from './store'
+
 import './index.css'
 import './App.css'
 import App from './App'
 
-createRoot(document.getElementById('root')).render(
-  
-  <StrictMode>
-    <App/>
-  </StrictMode>,
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+  // <Provider store={store}>
+    <ChakraProvider> 
+      <App/> 
+    </ChakraProvider>
+  // </Provider>
+    
 )
+// createRoot(document.getElementById('root')).render(
+  
+//   <StrictMode>
+//     {/* <ChakraProvider> */}
+//      <App/> 
+//     {/* </ChakraProvider> */}
+    
+//   </StrictMode>,
+// )

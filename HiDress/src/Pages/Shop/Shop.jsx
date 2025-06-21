@@ -1,12 +1,17 @@
 import React from 'react'
-import './Shop.css'
+import ProductsC from '../../Components/ProductsC';
+import  "./Shop.css";
+import { Helmet } from 'react-helmet';
 
-function Shop() {
-  return (
-    <div>
-This is Shop page
-    </div>
-  )
+const Shop = () => {
+    return (
+        <div className = 'shoppage'>
+            <Helmet>
+                <title>Shop</title>
+            </Helmet>
+            <ProductsC />
+        </div>
+    )
 }
 
 export default Shop
