@@ -54,7 +54,7 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
 
 
     useEffect(() => {
-        console.log(product.images)
+        console.log(product.image)
         return () => {
         }
     },[])
@@ -71,7 +71,7 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
     return (
         <div className = 'productcart'>
             <div className = 'imagecart'>
-            <Image objectFit="cover" src = {product?.images}/>
+            <Image objectFit="cover" src = {`${PORT}${product?.image}`}/>
 
             </div>
                 <div>
@@ -88,7 +88,7 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
 
                 </div>
                 <div className = 'qtyoption' >
-                <Select ref = {select} defaultValue = {qty} 
+                <Select ref = {select} defaultValue = {product.qty} 
                 onChange ={
                     async e =>{ 
                         await setQty(e.target.value)

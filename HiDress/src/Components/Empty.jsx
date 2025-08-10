@@ -1,14 +1,18 @@
 import React,{useState} from 'react'
-import EmptyS from "./Empty.svg"
+import EmptyS from "./Empty.jpeg"
 import { Link } from "react-router-dom";
 import { RiArrowRightSLine  , TiArrowRight,BsArrowBarRight} from "react-icons/all";
+import { Image } from '@chakra-ui/react';
+//           <Image name="imgProduct" boxSize="350px" objectFit="cover" src={
+//             `${PORT}${product.images[0]}` || product.images[0]} />
 
 
 const Empty = () => {
     const [arrow, setarrow] = useState(false)
     return (
         <div className = 'Emptycart'>
-            <EmptyS className = 'illustration'/>
+            <Image name="imgProduct" boxSize="350px" objectFit="cover" src={EmptyS}/>
+
             <div className = 'textempty'>
             <h1>
                 Wow Such an empty Cart

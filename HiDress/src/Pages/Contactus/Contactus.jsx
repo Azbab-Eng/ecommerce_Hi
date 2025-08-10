@@ -20,7 +20,9 @@ const Contactus = () => {
                 <title>Contact</title>
             </Helmet>
         <div className="headerContact">
-            <Image className="imageContact" src='https://i.imgur.com/7rwaigw.jpg' alt="contactImage" objectFit="cover"/>
+
+            <Image className="imageContact" src={cover} alt="contactImage" objectFit="cover"/>
+            {/* <Image className="imageContact" src='https://i.imgur.com/7rwaigw.jpg' alt="contactImage" objectFit="cover"/> */}
             <div className="text">
                 <h2>Contact</h2>  
             </div>
@@ -51,7 +53,7 @@ const Contactus = () => {
                     <div className="adressCtn">
 
                         <h3> Address</h3>
-                        <p>Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US</p>
+                        <p>Apete Microfinance Bank, Poly road, Ibadan, Nigeria </p>
                     </div>
                 </div>
                     <div className="box">
@@ -59,7 +61,7 @@ const Contactus = () => {
                     <div className="adressCtn">
 
                         <h3>Lets Talk</h3>
-                        <p className="infoCtn">0657964665</p>
+                        <p className="infoCtn">+2348165732866</p>
                     </div>
                 </div>
                 <div className="box">
@@ -67,7 +69,7 @@ const Contactus = () => {
                     <div className="adressCtn">
 
                         <h3>Sale Support</h3>
-                        <p className="infoCtn">Store@gmail.com</p>
+                        <p className="infoCtn">hidressup@gmail.com</p>
                     </div>
                 </div>
             </div>

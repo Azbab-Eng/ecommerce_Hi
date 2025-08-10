@@ -8,41 +8,6 @@ const Footer = () => {
     return (
         <div className="footerCmp">
             <footer>
-                <div className="footerCategorie">
-                    <h1>Categories</h1>
-                    <ul>
-                        <li><Link to = '/shop/?cg=Women'>Women</Link></li>
-                        <li><Link to = '/shop/?cg=Men'>Men</Link></li>
-                        <li><Link to = '/shop/?cg=Shoes'>Shoes</Link></li>
-                        <li><Link to = '/shop/?cg=Watches'>Watches</Link></li>
-                    </ul>
-                </div>
-
-                <div className="fooHelp">
-                    <h1>Help</h1>
-                    <ul>
-                        <li>Tracke Order</li>
-                        <li>Returns</li>
-                        <li>Shipping</li>
-                        <li>FAQs</li>
-                    </ul>
-                </div>
-
-                <div className="footerGetInTouch">
-                    <h1>Get in touch</h1>
-                    <ul>
-                        <p>Any questions? Let us know in store at BP 473 Complexe universitaire Al Qods, Oujda 60000 or call us on (+212) 65964665</p>
-                        <li className="footerIcons">
-                            <FiFacebook size="25" />
-                        </li>
-                        <li className="footerIcons">  
-                            <AiOutlineInstagram size="25" />
-                        </li>
-                        <li className="footerIcons">
-                            <IoLogoYoutube size="25"/>
-                        </li>
-                    </ul>
-                </div>
 
                 <div className="footerNews">
                     <h1>Newsletter</h1>
@@ -68,10 +33,10 @@ const Footer = () => {
                     
                 </div>
                 
-                <div className="paragraphFooter"><p>Copyright ©2021 All rights reserved | This template is made with ♡ by Developers of ESTO</p>
-                <Link to = '' >Abdessamad bourhjoul</Link>
-                <Link to = ''  >Soufian zaam</Link>
-                <Link to = ''  >Souhail ouabou</Link>
+                <div className="paragraphFooter"><p>Copyright ©2025 All rights reserved | This Website is made with ♡ by Az Developer</p>
+                <Link to = '' >Babalola Abdulazeez</Link>
+                <Link to = ''  >Azbab Design Hub</Link>
+                <Link to = ''  >@alltech</Link>
                 </div>
 
 

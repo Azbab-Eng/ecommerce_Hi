@@ -1,22 +1,16 @@
-footer {
-  margin-top: 120px;
-  height: 450px;
 
-  display: grid;
-  grid-gap: 10px;
-
-  grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(1fr, 50px));
-  row-gap: 8px;
-
+footer{
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   background-color: #252525;
   justify-items: center;
 }
-
 footer h1 {
   text-transform: uppercase;
   padding-top: 40px;
-  margin: 35px 0px;
+  /* margin: 35px 0px; */
   font-size: 19px;
   font-weight: 700;
   color: white;
@@ -56,12 +50,7 @@ footer p {
   outline-style: none;
   transition: all 0.5s Linear;
 }
-.footerCategorie li:hover,
-.fooHelp li:hover {
-  transition: all 0.5s Linear;
 
-  color: #fff;
-}
 .footerBtn:hover {
   color: #1e1e2c;
   background-color: white;

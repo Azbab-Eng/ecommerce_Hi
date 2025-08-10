@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-// import { useDispatch,useSelector } from 'react-redux'
+
 import CardProduct from './CardProduct'
 // import {listProducts,ListproductbyCg, Listproductbyfiter,Listproductbyprice} from '../actions/productActions'
 import {BsFilter,AiOutlineSearch,IoMdClose} from 'react-icons/all'
@@ -19,22 +19,9 @@ const ProductsC = () => {
     // let Cg = window.location.search ? window.location.search.split('=')[1] : null
     const keyword = location.pathname.split('/')[2] 
 
-    // const dispatch = useDispatch()
-    // const productList = useSelector((state) => state.productList)
-    // const productbycg = useSelector((state)=>{
-    //     return state.ListproductbyCg
-    // })
-    // const productbyfilter = useSelector((state)=>{
-    //     return state.Listproductbyfiter
-    // })
-    // const productbyprice = useSelector((state)=>{
-    //     return state.Listproductbyprice
-    // })
     const [loading,setLoading] = useState(false)
     const [message,setMessage] = useState('') 
     const [products,setProducts] = useState([])
-    // const {products,error} = productbycg ? 
-    // productbycg : productList ? productList : productbyprice ;
 
     const listProducts = async (keyword="") =>{
         try {
@@ -90,10 +77,6 @@ const ProductsC = () => {
     }
 };
         
-//  useEffect(() => {
-//     listProducts();
-// }, []);
-
 // Fetch products based on category, filter, or keyword
 useEffect(() => {
     if (Cg) {
@@ -148,9 +131,9 @@ useEffect(() => {
                     <Link className = 'lined' to = '?cg'>All</Link>
                     <Link className = 'lined'  to = '?cg=Men'>Men</Link>
                     <Link className = 'lined'  to = '?cg=Women'>Women</Link>
-                    <Link className = 'lined'  to = '?cg=Watches'>Watches</Link>
-                    <Link className = 'lined' to = '?cg=Shoes'>Shoes</Link>
-                    <Link to = '?cg=Bag' className = 'lined'>Bag</Link>
+                    <Link className = 'lined'  to = '?cg=Embroideries'>Embroideries</Link>
+                    <Link className = 'lined' to = '?cg=Art'>Art Works</Link>
+                    <Link className = 'lined' to = '?cg=Contents'>Contents</Link>
             </ul>
             </div>
         </div>

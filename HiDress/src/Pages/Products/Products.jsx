@@ -72,7 +72,6 @@ const Products = ({userInfo}) => {
         }
     }
 
-
     useEffect(()=>{
         if(!userInfo.isAdmin){
             navigate('/login')
@@ -107,7 +106,7 @@ const Products = ({userInfo}) => {
                    error || errorDelete || errorCreate  ? <h1>{error || errorDelete || errorCreate}</h1> : 
                    <>
                    <h1>{successCreate || successDelete}</h1>
-                    <Button leftIcon = {<CgAdd size = '20' />} className = 'ADDBUTTON' colorScheme ='blue' onClick = {createproducthandler}>ADD</Button>
+                    <Button leftIcon = {<CgAdd size = '20' />}  style={{margin:"10px 45%"}} colorScheme ='blue' onClick = {createproducthandler}>ADD</Button>
 
                    <Box overflowX = 'auto'>
                    <Table  className = 'productusers' variant="striped">

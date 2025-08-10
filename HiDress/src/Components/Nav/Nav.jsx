@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import lg from './lg.jpg'
 import {
   Button,
   Menu,
@@ -91,12 +92,12 @@ const Nav = ({ userInfo, setUserInfo }) => {
     console.log('User logged out');
     navigate('/login')
   };
-
+  
 
   return (
     <nav ref={navRef} className={`nav ${isScrolled ? 'active' : ''}`}>
       <div className="logo">
-        <Link to="/">HiDress-Up</Link>
+        <Link to="/"><img src={lg} alt="logo" id='lg' /></Link>
       </div>
 
       <ul className="navLinks" ref={navLinksRef}>
@@ -118,21 +119,21 @@ const Nav = ({ userInfo, setUserInfo }) => {
         </div>
         <MdSearch className="iconSearch" size={26} onClick={toggleSearchBar} />
 
-        <Link to="/cart">
+        <Link id='cart' to="/cart">
           <RiShoppingCart2Line className="iconCart" size={26} />
           {userInfo && !userInfo.isAdmin && (
-            <div className="dotcart">{cart.length}</div>
+            <span className="dotcart">{cart.length}</span> 
           )}
         </Link>
 
         {userInfo ? (
           <>
-            <div className="ic_sett_dis">
+            {/* <div className="ic_sett_dis"> */}
               <Link to="/profile">
                 <CgProfile size={25} className="settingIcon" />
               </Link>
               <IoLogOutOutline size={28} className="displayIcon" onClick={logoutHandler} />
-            </div>
+            {/* </div> */}
 
             {userInfo.isAdmin && (
               <Menu>

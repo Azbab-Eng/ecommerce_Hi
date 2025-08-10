@@ -42,6 +42,7 @@ const CardProduct = ({ product }) => {
         onMouseLeave={() => setShowbtn(false)}
       >
         <div name="imgDiv">
+          
           <Image name="imgProduct" boxSize="350px" objectFit="cover" src={
             `${PORT}${product.images[0]}` || product.images[0]} />
         </div>

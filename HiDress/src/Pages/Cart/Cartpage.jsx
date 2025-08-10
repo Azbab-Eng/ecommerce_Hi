@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect,useState ,useRef} from 'react';
 import { Helmet } from 'react-helmet';
-// import {ReactComponents as Empty} from '../../Components/Empty';
+import Empty from '../../Components/Empty';
 import Productoncart from '../../Components/Productoncart';
 import { useParams,useNavigate, useLocation } from 'react-router-dom';
 import './Cartpage.css'
@@ -64,7 +64,8 @@ useEffect(() => {
 
 
     const checkoutHandler =()=>{
-        navigate('./login?redirect=shipping');
+        navigate('/shipping');
+        // navigate('./login?redirect=shipping');
     }
     useEffect(()=>{
       setCartItems(getCart())
@@ -75,8 +76,8 @@ useEffect(() => {
             <title>Cart</title>
         </Helmet>
         {cartItems.length === 0 ? 
-        // <Empty />
-        "EMPTY CART"
+        <Empty />
+        // "EMPTY CART"
         :
         <div className ='cartfull'>
         <div className = 'cart'>

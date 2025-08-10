@@ -7,7 +7,7 @@ import {
 import { Helmet } from 'react-helmet';
 import { AiFillDelete, AiOutlineEdit } from 'react-icons/ai';
 import axios from 'axios';
-import { deleteUser } from '../../actions/userActions';
+
 
 const Users = ({ userInfo, setUserInfo }) => {
   const [users, setUsers] = useState([]);
@@ -34,6 +34,7 @@ const Users = ({ userInfo, setUserInfo }) => {
       setLoading(false);
     } catch (error) {
       setError("Can't get Users list");
+      setLoading(false);
     }
   };
 
@@ -96,9 +97,9 @@ const Users = ({ userInfo, setUserInfo }) => {
       <h1>{success}</h1>
       {loading ? <div className='loading'>
         <HashLoader color={"#1e1e2c"} loading={loading} size={40} />
-      </div> : error ? <h1>{error}</h1> : 
+      </div> : error ? <h1 style={{marginBottom:'100px'}} >{error}</h1> : 
       
-        <Box overflowX='auto'>
+        <Box overflowX='auto' >
           <Table className='tableusers' variant="striped">
             <Thead>
               <Tr>

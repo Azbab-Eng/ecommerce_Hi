@@ -6,7 +6,6 @@ import { Input,InputGroup } from '@chakra-ui/react';
 import { Helmet } from 'react-helmet';
 
 import {Box, Checkbox, Stack, Textarea, VStack} from '@chakra-ui/react'
-import { PRODUCT_UPDATE_RESET } from '../../constants/productConstants';
 import './Editproduct.css'
 const Editproduct = ({userInfo}) => {
 

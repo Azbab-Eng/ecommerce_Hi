@@ -1,15 +1,9 @@
 import React, {useState, useEffect,} from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import { Helmet } from 'react-helmet';
-
-import {Form, Image} from 'react-bootstrap'
-
 import {BsArrowRight} from "react-icons/all"
-import avatar from './img/avatare.svg'
-// import {login} from '../../actions/userActions'
-import login_svg from './img/login.svg'
-import wave from './img/wavev.png'
-import './Login.css'
+import lfImg from './img/lfImg.jpg'
+import './Login2.css'
 import axios from 'axios';
 
 
@@ -46,75 +40,42 @@ const Login = ({ setUserInfo }) => {
 
 
 
-  const inputs = document.querySelectorAll(".inputa");
-
-
-  function addcl(){
-    let parent = this.parentNode.parentNode;
-    parent.classList.add("focus");
-  }
-  
-  function remcl(){
-    let parent = this.parentNode.parentNode;
-    if(this.value == ""){
-      parent.classList.remove("focus");
-    }
-  }
-  
-  
-  inputs.forEach(inputa => {
-    inputa.addEventListener("focus", addcl);
-    inputa.addEventListener("blur", remcl);
-  });
-
     return (
-        <div>
-          <Helmet>
+      <>
+         <Helmet>
             <title>Login</title>
-
           </Helmet>
-          <Image className="wave" src={wave} />
-            <div className="containera">
-              <div className="imga">
-			          <Image src={login_svg} />
-		          </div>
-		          <div className="login-content">
-			        <form onSubmit={submitHandler}>
-			          <h1>Member Login</h1>
-				        {<h4>{message}</h4>}
+          <div className='cong'>
+            <div className='conform'>
+              <div className='left'><img src={lfImg} alt="left_img" /></div>
+                {/* {<h4>{message}</h4>} */}
+              <div className="form-wrapper2">
+                
+                  <h2>Sign In</h2>
+                  <form onSubmit={submitHandler}>
+                      <div className="form-control">
+                          <input type="text"  value={formData.email} className="inputa" placeholder="Enter Email" onChange={(e) => setFormData({...formData,email:e.target.value})} />
+                          <label>Email or phone number</label>
+                      </div>
+                      <div className="form-control">
+                          <input type="password" value={formData.password} className="inputa" placeholder="Enter Password" onChange={(e) => setFormData({...formData,password:e.target.value})}/>
+                          <label>Password</label>
+                      </div>
+                      <button className='button2' type="submit">Sign In</button>
+                      <div className="form-help"> 
+                          <div className="remember-me">
+                              <input type="checkbox" className="inputa" id="remember-me" />
+                              <label >Remember me</label>
+                          </div>
+                          <Link className ='text-forgot'  to ='/forgot'>Forget Password? </Link>
+                      </div>
+                  </form>
+                  <span className='lk'><p>New to Hidressup?</p><Link className="createAcc" to="/register">Create Account</Link><BsArrowRight size="25"/></span> 
+              </div>
 
-           		  <div className="input-div one">
-           		    <div className="i">
-                    <i class="fas fa-envelope"></i>
-           		    </div>
-
-           		    <div className="div">
-           		   		<input type="text" value={formData.email} className="inputa" placeholder="Enter Email" onChange={(e) => setFormData({...formData,email:e.target.value})} />
-           		    </div>
-           		  </div>
-
-           		  <div className="input-div pass">
-           		   <div className="i"> 
-           		    	<i className="fas fa-lock"></i>
-           		   </div>
-           		   <div className="div">	
-           		    	<input type="password" value={formData.password} className="inputa" placeholder="Enter Password" onChange={(e) => setFormData({...formData,password:e.target.value})}/>
-            	   </div>
-            	  </div>
-            	
-            	  <input type="submit" className="btna" value="Login" />
-               
-                <div className='div-forgot'>
-                    <span>Forgot </span>
-                    <Link className ='text-forgot'  to ='/forgot'>Password? </Link>
-                         
-                </div>
-                <Link className="createAcc" to="/register">Create your Account <BsArrowRight size="25"/></Link>
-             
-              </form>
-        </div>
-    </div>
-        </div>
+            </div>
+          </div>
+      </>
     )
 }
 

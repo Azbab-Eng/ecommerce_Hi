@@ -21,7 +21,6 @@ import Order from './Pages/Order/Order';
 import Users from './Pages/Users/Users';
 import Products from './Pages/Products/Products';
 import Orders from './Pages/Orders/Orders';
-import EditUser from './Pages/Useredit/EditUsers';
 import Editproduct from './Pages/Editproduct/Editproduct';
 import Forgot from './Components/Forgot/Forgot';
 import NotFound from './Components/Notfound/NotFound';
@@ -60,7 +59,7 @@ const App = () => {
         ) : (
           <>
             <Nav userInfo={userInfo} setUserInfo={setUserInfo}/>
-            <div style={{padding:"100px"}}>
+            <div style={{padding:"70px 0 0 0"}}>
                 <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
@@ -72,13 +71,12 @@ const App = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile userInfo={userInfo} setUserInfo={setUserInfo} />} />
                 <Route path="/shipping" element={<Checkout />} />
-                <Route path="/placeorder" element={<Placeorder />} />
-                <Route path="/order/:id" element={<Order />} />
+                <Route path="/placeorder" element={<Placeorder userInfo={userInfo} />} />
+                <Route path="/order/:id" element={<Order userInfo={userInfo} />} />
                 <Route path="/admin/userlist" element={<Users userInfo={userInfo} setUserInfo={setUserInfo} />} />
                 <Route path="/admin/productlist" element={<Products userInfo={userInfo} />} />
-                <Route path="/admin/orderlist" element={<Orders />} />
+                <Route path="/admin/orderlist" element={<Orders userInfo={userInfo} />} />
                 <Route path="/search/:keyword" element={<Shop />} />
-                <Route path="/admin/user/:id/edit" element={<EditUser />} />
                 <Route path="/admin/product/:id/edit" element={<Editproduct userInfo={userInfo} />} />
                 <Route path="/admin/product/create" element={<Createproduct userInfo={userInfo} />} />
                 <Route path="/forgot" element={<Forgot/>} />

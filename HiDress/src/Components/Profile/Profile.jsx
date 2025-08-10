@@ -3,7 +3,6 @@ import axios from 'axios'
 import {Link, useNavigate} from 'react-router-dom'
 import {Form, Image} from 'react-bootstrap'
 // import {useDispatch, useSelector} from 'react-redux'
-import avatarRegister from '../img/avatarRegister.svg'
 import addUs from '../img/new.svg'
 import wave from '../img/wavev.png'
 import { Helmet } from 'react-helmet';
@@ -11,7 +10,7 @@ import { Helmet } from 'react-helmet';
 // import {listMyOrders } from '../actions/orderActions'
 import { IoIosArrowDown } from 'react-icons/all';
 import HashLoader from "react-spinners/HashLoader";
-
+// import "./Profile.css"
 
 
 import {
@@ -87,24 +86,13 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
       // dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
     } catch (error) {
       setMessage(error.response?.data?.message || "Something Wrong")
-      // dispatch({
-      //   type: USER_DETAILS_FAIL,
-      //   payload:
-      //     error.response && error.response.data.message
-      //       ? error.response.data.message
-      //       : error.message,
-      // });
+
     }
   };
 
   const updateUserProfile = async (userData) =>{
     try {
-      // dispatch({ type: USER_UPDATE_PROFILE_REQUEST });
-  
-      // const {
-      //   userLogin: { userInfo },
-      // } = getState();
-  
+
       const config = authConfig(userInfo.token);
   
       const { data } = await axios.put(`${PORT}/users/profile`, userData, config);
@@ -118,13 +106,7 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
       setError(true)
       console.log(error)
       setMessage(error.response?.data?.message || "Something Wrong")
-      // dispatch({
-      //   type: USER_UPDATE_PROFILE_FAIL,
-      //   payload:
-      //     error.response && error.response.data.message
-      //       ? error.response.data.message
-      //       : error.message,
-      // });
+
     }
   };
 
@@ -227,18 +209,15 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
 
   }
 
-
-
     return (
     <div className="registerSc">
       <Helmet>
         <title>Profile</title>
       </Helmet>
-      <Image className="wave" src={wave}/>
       <div className="containera">
               
 		<div className="imga">
-			<Image src={addUs} />
+			<Image src={''} />
 		</div>
     <div className = 'rightinfos'>
     <div className = 'showbtn' onClick = {()=>setShowOrders(!ShowOrders)}>{ShowOrders ? 'Show my infos' :'Show my orders'} <IoIosArrowDown /></div>
@@ -246,7 +225,7 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
     {!ShowOrders ? 
 		<div className= 'login-content'>
 			<form onSubmit={submitHandler}>
-				<Image src={avatarRegister} />
+				<Image src={''} />
 				{error && <h4>{error}</h4>}
                 {success && <h4>Profile Updated</h4>}
                 

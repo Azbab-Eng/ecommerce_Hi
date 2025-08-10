@@ -1,4 +1,4 @@
- import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect} from 'react'
 import Slider from '../../Components/Slider'
 import Cardscg from '../../Components/Cardscg'
 import CgDiv from '../../Components/CgDiv'
@@ -12,14 +12,14 @@ const Home = () => {
     return (
         <>
         <Helmet>
-            <title>Azbab CLOTHING</title>
+            <title> HiDressUp CLOTHING</title>
         </Helmet>
              <div>
                 <Slider/>
                  <div className="cards">
                          <Cardscg title='Women'/>
                          <Cardscg title='Men'/>
-                         <Cardscg title='Accessoires'/>                
+                         <Cardscg title='Embroideries'/>                
                  </div>
                 <CgDiv/>
                 <ProductsC/>

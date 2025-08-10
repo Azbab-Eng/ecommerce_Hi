@@ -1,6 +1,7 @@
 .cartfull {
+  /* height: 1000px; */
   display: grid;
-  position: relative;
+  /* position: relative; */
   top: 110px;
   grid-template-columns: 70% 30%;
 }
@@ -42,6 +43,7 @@
   column-gap: 5px;
 }
 .Emptycart {
+  padding-left: 50px;
   position: relative;
   top: 70px;
   display: grid;
