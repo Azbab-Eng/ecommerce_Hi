@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import './NotFound.css'
 
-function NotFound() {
+function Not() {
   const location = useLocation()
   return (
     <div>
@@ -11,4 +11,4 @@ function NotFound() {
   )
 }
 
-export default NotFound
+export default Not

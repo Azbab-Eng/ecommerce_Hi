@@ -23,7 +23,7 @@ import Products from './Pages/Products/Products';
 import Orders from './Pages/Orders/Orders';
 import Editproduct from './Pages/Editproduct/Editproduct';
 import Forgot from './Components/Forgot/Forgot';
-import NotFound from './Components/Notfound/NotFound';
+import Not from './Components/Not/Not';
 import Createproduct from './Pages/Createproduct/Createproduct';
 
 const App = () => {
@@ -80,7 +80,7 @@ const App = () => {
                 <Route path="/admin/product/:id/edit" element={<Editproduct userInfo={userInfo} />} />
                 <Route path="/admin/product/create" element={<Createproduct userInfo={userInfo} />} />
                 <Route path="/forgot" element={<Forgot/>} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="*" element={<Not />} />
                 </Routes>    
             </div>
             
