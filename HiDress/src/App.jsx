@@ -50,7 +50,7 @@ const App = () => {
 
   return (
     <div className="main">
-      <Router basename='/ecommerce_Hi/'>
+      <Router >
         {/* <ScrollView /> */}
         {loading ? (
           <div className="loading">
