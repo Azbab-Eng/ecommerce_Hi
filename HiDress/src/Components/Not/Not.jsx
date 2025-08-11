@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import './NotFound.css'
+import './Not.css'
 
 function Not() {
   const location = useLocation()
