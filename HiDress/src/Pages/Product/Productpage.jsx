@@ -26,7 +26,7 @@ const Productpage = ({userInfo}) => {
         try {
             setLoading(true);
 
-            const response = await axios.get(`${PORT}products/${id}`);
+            const response = await axios.get(`${PORT}/products/${id}`);
 
             if (!response || !response.data) {
               throw new Error('No data returned from backend');

@@ -9,7 +9,6 @@ import HashLoader from "react-spinners/RingLoader";
 import { Link,useLocation} from 'react-router-dom'
 import axios from 'axios';
 
-
 const ProductsC = () => {
     const PORT = import.meta.env.VITE_API_URL
     const [From, setFrom] = useState(0)
