@@ -4,11 +4,15 @@ import { Helmet } from 'react-helmet';
 import {AiFillTwitterCircle,AiFillInstagram,AiFillShop,MdDoNotDisturb}  from "react-icons/all"
 import { Image,Select,Button} from "@chakra-ui/react"
 import {IoLogoFacebook } from "react-icons/io"
-import HashLoader from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/RingLoader";
+import dotenv from "dotenv";
+dotenv.config();
+
 import  './Productpage.css'
 import { Link,useParams,useNavigate } from 'react-router-dom'
 const Productpage = ({userInfo}) => {
-  const PORT = 'http://localhost:8000/'
+  const PORT = import.meta.env.API_URL
+  
    const [qty, setQty] = useState(1)
     const {id} = useParams()
     const navigate = useNavigate()

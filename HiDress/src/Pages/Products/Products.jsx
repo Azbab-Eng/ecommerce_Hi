@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import HashLoader from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/RingLoader";
 import './Products.css'
 import {
     Button, Table,  Thead,
@@ -16,9 +16,13 @@ import { Link } from 'react-router-dom';
 import { AiFillDelete, AiOutlineEdit } from 'react-icons/ai';
 import { CgAdd } from 'react-icons/cg';
 import { Helmet } from 'react-helmet';
+import dotenv from "dotenv";
+dotenv.config();
+
 
 const Products = ({userInfo}) => {
-    const PORT = "http://localhost:8000"
+    const PORT = import.meta.env.API_URL
+    
     const authConfig = (token, contentType = "application/json") => ({
         headers: {
           "Content-Type": contentType,

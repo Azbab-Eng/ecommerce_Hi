@@ -1,15 +1,17 @@
 import axios from 'axios'
 import { useParams,useNavigate } from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
-import HashLoader from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/RingLoader";
 import { Input,InputGroup } from '@chakra-ui/react';
 import { Helmet } from 'react-helmet';
+import dotenv from "dotenv";
+dotenv.config();
 
 import {Box, Checkbox, Stack, Textarea, VStack} from '@chakra-ui/react'
 import './Editproduct.css'
 const Editproduct = ({userInfo}) => {
-
-    const PORT = "http://localhost:8000"
+    
+    const PORT = import.meta.env.API_URL
     const {id} = useParams()
     const navigate = useNavigate()
     const [name,setName] = useState('')

@@ -6,11 +6,14 @@ import {Form, Image} from 'react-bootstrap'
 import addUs from '../img/new.svg'
 import wave from '../img/wavev.png'
 import { Helmet } from 'react-helmet';
-// import {getUserDetails, updateUserProfile} from '../actions/userActions'
-// import {listMyOrders } from '../actions/orderActions'
+import {getUserDetails, updateUserProfile} from '../actions/userActions'
+import {listMyOrders } from '../actions/orderActions'
 import { IoIosArrowDown } from 'react-icons/all';
-import HashLoader from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/RingLoader";
 // import "./Profile.css"
+import dotenv from "dotenv";
+dotenv.config();
+
 
 
 import {
@@ -61,7 +64,7 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
 
   // const { loading:loading,error:errorOrders,orders } = orderMylist
 
-  const PORT ="http://localhost:8000"
+ const PORT = import.meta.env.API_URL
 
   const authConfig = (token, contentType = "application/json") => ({
   headers: {
@@ -147,7 +150,7 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
           })
           
       }
-  }
+  };
 
 
 

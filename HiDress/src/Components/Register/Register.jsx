@@ -5,6 +5,10 @@ import { Helmet } from 'react-helmet';
 import lfImg from './img/lfImg2.JPG'
 import axios from 'axios';
 import './Register.css'
+import dotenv from "dotenv";
+dotenv.config();
+
+
 
 const Register = () => {
   const [formData,setFormData] = useState({name:"",email:"",no:"",password:""})
@@ -14,7 +18,7 @@ const Register = () => {
   const [step,setStep] = useState("form")
   const navigate = useNavigate()
 
-  const PORT ="http:localhost:8000"
+  const PORT = import.meta.env.API_URL
 //  Helper to create config with Authorization header and Content-Type
   const authConfig = (token, contentType = "application/json") => ({
   headers: {

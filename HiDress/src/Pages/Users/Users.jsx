@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import HashLoader from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/RingLoader";
 import './Users.css';
 import {
   Button, Input, Table, Thead, Tbody, Tr, Th, Td, Stack, Box
@@ -7,6 +7,8 @@ import {
 import { Helmet } from 'react-helmet';
 import { AiFillDelete, AiOutlineEdit } from 'react-icons/ai';
 import axios from 'axios';
+import dotenv from "dotenv";
+dotenv.config();
 
 
 const Users = ({ userInfo, setUserInfo }) => {
@@ -16,8 +18,8 @@ const Users = ({ userInfo, setUserInfo }) => {
   const [success, setSuccess] = useState('');
   const [editingUserId, setEditingUserId] = useState(null);
   const [updatedUser, setUpdatedUser] = useState({});
-
-  const PORT = "http://localhost:8000";
+  
+  const PORT = import.meta.env.API_URL;
 
   const authConfig = (token, contentType = "application/json") => ({
     headers: {

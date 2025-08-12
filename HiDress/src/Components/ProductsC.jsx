@@ -5,11 +5,14 @@ import CardProduct from './CardProduct'
 import {BsFilter,AiOutlineSearch,IoMdClose} from 'react-icons/all'
 import Search from './Search';
 import {NumberInput,NumberInputField,FormLabel, Button, Stack, FormControl, filter} from "@chakra-ui/react"
-import HashLoader from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/RingLoader";
 import { Link,useLocation} from 'react-router-dom'
 import axios from 'axios';
+import dotenv from "dotenv";
+dotenv.config();
+
 const ProductsC = () => {
-    const PORT = "http://localhost:8000"
+    const PORT = import.meta.env.API_URL
     const [From, setFrom] = useState(0)
     const [To, setTo] = useState(0)
     const location = useLocation();

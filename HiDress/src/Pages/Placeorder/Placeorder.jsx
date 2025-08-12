@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import { Helmet } from 'react-helmet';
+import dotenv from "dotenv";
+dotenv.config();
 
 import './Placeorder.css'
 const Placeorder = ({userInfo}) => {
-    const PORT = "http://localhost:8000"
+    const PORT = import.meta.env.API_URL
     const navigate = useNavigate()
     const getOrder = ()=>{
       const order = localStorage.getItem('orderDetails')
