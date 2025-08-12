@@ -5,16 +5,13 @@ import {BsArrowRight} from "react-icons/all"
 import lfImg from './img/lfImg.jpg'
 import './Login2.css'
 import axios from 'axios';
-import dotenv from "dotenv";
-dotenv.config();
-
 
 const Login = ({ setUserInfo }) => {
   const [formData,setFormData] = useState({email:"",password:""})
   const [message,setMessage] = useState('')
   const navigate = useNavigate()
   
-  const PORT = import.meta.env.API_URL
+  const PORT = import.meta.env.VITE_API_URL
 
   const config = {
     header:{

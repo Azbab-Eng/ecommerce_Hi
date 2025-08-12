@@ -5,13 +5,11 @@ import {AiFillTwitterCircle,AiFillInstagram,AiFillShop,MdDoNotDisturb}  from "re
 import { Image,Select,Button} from "@chakra-ui/react"
 import {IoLogoFacebook } from "react-icons/io"
 import HashLoader from "react-spinners/RingLoader";
-import dotenv from "dotenv";
-dotenv.config();
 
 import  './Productpage.css'
 import { Link,useParams,useNavigate } from 'react-router-dom'
 const Productpage = ({userInfo}) => {
-  const PORT = import.meta.env.API_URL
+  const PORT = import.meta.env.VITE_API_URL
   
    const [qty, setQty] = useState(1)
     const {id} = useParams()

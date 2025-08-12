@@ -4,15 +4,12 @@ import { Select } from "@chakra-ui/react"
 import { VscChromeClose } from "react-icons/all";
 import { Link,useParams } from 'react-router-dom';
 import axios from 'axios';
-import dotenv from "dotenv";
-dotenv.config();
-
 
 const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
 
     // const [qty,setqty] = useState(0)
     const select = useRef(null);
-    const PORT = import.meta.env.API_URL
+    const PORT = import.meta.env.VITE_API_URL
     // const qty = params.has('qty') ? Number(params.get('qty')) : 1
     const getCart = ()=>{
     const cart = localStorage.getItem('cartItems')

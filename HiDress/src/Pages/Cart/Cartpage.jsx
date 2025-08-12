@@ -6,13 +6,10 @@ import Productoncart from '../../Components/Productoncart';
 import { useParams,useNavigate, useLocation } from 'react-router-dom';
 import './Cartpage.css'
 import axios from 'axios';
-import dotenv from "dotenv";
-dotenv.config();
-
 
 
 const Cartpage = () => {
-    const PORT = import.meta.env.API_URL
+    const PORT = import.meta.env.VITE_API_URL
   
     const {id} = useParams()
     const location = useLocation()

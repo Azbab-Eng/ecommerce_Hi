@@ -5,15 +5,12 @@ import {Link, useNavigate, useParams} from 'react-router-dom'
 import { Helmet } from 'react-helmet';
 import { IoMdDoneAll } from 'react-icons/all';
 import HashLoader from "react-spinners/RingLoader";
-import dotenv from "dotenv";
-dotenv.config();
-
 
 import './Order.css'
 import { Button } from '@chakra-ui/react';
 const Order = ({userInfo}) => {
     const [sdkReady, setsdkReady] = useState(false)
-    const PORT = import.meta.env.API_URL 
+    const PORT = import.meta.env.VITE_API_URL 
     const {id}= useParams()
     const navigate = useNavigate()
     const orderId = id

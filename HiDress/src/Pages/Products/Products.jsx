@@ -16,12 +16,10 @@ import { Link } from 'react-router-dom';
 import { AiFillDelete, AiOutlineEdit } from 'react-icons/ai';
 import { CgAdd } from 'react-icons/cg';
 import { Helmet } from 'react-helmet';
-import dotenv from "dotenv";
-dotenv.config();
 
 
 const Products = ({userInfo}) => {
-    const PORT = import.meta.env.API_URL
+    const PORT = import.meta.env.VITE_API_URL
     
     const authConfig = (token, contentType = "application/json") => ({
         headers: {

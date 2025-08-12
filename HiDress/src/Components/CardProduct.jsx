@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { HiOutlineShoppingCart, HiShoppingCart } from 'react-icons/all';
 import { Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import dotenv from "dotenv"
-dotenv.config()
+
 const CardProduct = ({ product }) => {
   const [showbtn, setShowbtn] = useState(false);
   const [Incart, setIncart] = useState(false);
-  const PORT = import.meta.env.API_URL
+  const PORT = import.meta.env.VITE_API_URL
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const isInCart = cartItems.find((item) => item.product === product._id);

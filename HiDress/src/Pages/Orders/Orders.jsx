@@ -7,7 +7,7 @@ import { AiFillDelete, AiOutlineEdit } from 'react-icons/ai';
 import axios from 'axios';
 
 const Orders = ({userInfo}) => {
-    const PORT = 'http://localhost:8000/'
+    const PORT = import.meta.env.VITE_API_URL
     const navigate = useNavigate()
     const [orders,setOrders] = useState([])
     const [loading,setlLoading] = useState(false)

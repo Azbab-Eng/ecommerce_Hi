@@ -7,8 +7,6 @@ import {
 import { Helmet } from 'react-helmet';
 import { AiFillDelete, AiOutlineEdit } from 'react-icons/ai';
 import axios from 'axios';
-import dotenv from "dotenv";
-dotenv.config();
 
 
 const Users = ({ userInfo, setUserInfo }) => {
@@ -19,7 +17,7 @@ const Users = ({ userInfo, setUserInfo }) => {
   const [editingUserId, setEditingUserId] = useState(null);
   const [updatedUser, setUpdatedUser] = useState({});
   
-  const PORT = import.meta.env.API_URL;
+  const PORT = import.meta.env.VITE_API_URL;
 
   const authConfig = (token, contentType = "application/json") => ({
     headers: {

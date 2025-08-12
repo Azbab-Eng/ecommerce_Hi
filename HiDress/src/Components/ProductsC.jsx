@@ -8,11 +8,10 @@ import {NumberInput,NumberInputField,FormLabel, Button, Stack, FormControl, filt
 import HashLoader from "react-spinners/RingLoader";
 import { Link,useLocation} from 'react-router-dom'
 import axios from 'axios';
-import dotenv from "dotenv";
-dotenv.config();
+
 
 const ProductsC = () => {
-    const PORT = import.meta.env.API_URL
+    const PORT = import.meta.env.VITE_API_URL
     const [From, setFrom] = useState(0)
     const [To, setTo] = useState(0)
     const location = useLocation();

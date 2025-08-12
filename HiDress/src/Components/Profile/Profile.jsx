@@ -6,15 +6,9 @@ import {Form, Image} from 'react-bootstrap'
 import addUs from '../img/new.svg'
 import wave from '../img/wavev.png'
 import { Helmet } from 'react-helmet';
-import {getUserDetails, updateUserProfile} from '../actions/userActions'
-import {listMyOrders } from '../actions/orderActions'
 import { IoIosArrowDown } from 'react-icons/all';
 import HashLoader from "react-spinners/RingLoader";
 // import "./Profile.css"
-import dotenv from "dotenv";
-dotenv.config();
-
-
 
 import {
   Button, Input, Table,  Thead,
@@ -64,7 +58,7 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
 
   // const { loading:loading,error:errorOrders,orders } = orderMylist
 
- const PORT = import.meta.env.API_URL
+ const PORT = import.meta.env.VITE_API_URL
 
   const authConfig = (token, contentType = "application/json") => ({
   headers: {
