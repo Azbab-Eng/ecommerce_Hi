@@ -86,7 +86,7 @@ useEffect(()=>{
       </Helmet>
         <div className = 'productpage'>
           {loading ?  <div className='loading-product'>
-                          <HashLoader   color={"#1e1e2c"}  loading={loading} size={50} />
+                          <HashLoader   color="orange"  loading={loading} size={50} />
                      </div>  : error ?  <h2>{error} </h2>  : 
 
      <div className = "card-wrapper">
@@ -94,7 +94,7 @@ useEffect(()=>{
         <div className = "product-imgs">
         <div className = "img-display">
             <div ref={imgShowcase}  className = "img-showcase">
-              {product?.images?.map((i)=><Image src= {`${PORT}${i}`} />)}
+              {product?.images?.map((i)=><Image src= {`${PORT}/${i}`} />)}
               
             </div>
           </div>
@@ -103,7 +103,7 @@ useEffect(()=>{
             // <Image src= {`${PORT}${i}`} />
               <div className = "img-item">
                 <a href = "#" data-id = "2">
-                  <Image  objectFit="cover" boxSize = '200px' src = {`${PORT}${i}`} alt = "shoe image"/>
+                  <Image  objectFit="cover" boxSize = '200px' src = {`${PORT}/${i}`} alt = "shoe image"/>
                 </a>
               </div>
           )}

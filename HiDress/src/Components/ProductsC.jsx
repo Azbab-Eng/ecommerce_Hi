@@ -171,7 +171,7 @@ useEffect(() => {
     </div>
             {loading ?
                <div className='loading'>
-                          <HashLoader   color={"#fff"}  loading={loading} size={40} />
+                          <HashLoader   color="orange"  loading={loading} size={40} />
                      </div> 
             // : message ? <h2>{message} </h2> 
             : products.length === 0 ? 

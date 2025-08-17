@@ -8,28 +8,41 @@ const CardProduct = ({ product }) => {
   const [Incart, setIncart] = useState(false);
   const PORT = import.meta.env.VITE_API_URL
   useEffect(() => {
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const isInCart = cartItems.find((item) => item.product === product._id);
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    console.log(cartItems)
+    if(product && product._id){
+      let isInCart = cartItems.find((item) => item && item.productId === product?._id);
     if (isInCart) {
-      setIncart(true);
+
+      setIncart(true)
+    }else{
+
+      setIncart(false);
     }
+    }
+    
   }, [product._id]);
 
   const addcart = () => {
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const newItem = {
-      product: product._id,
-      name: product.name,
-      price: product.price,
-      qty: 1,
-      image: product.images[0],
+            productId: product._id,
+            name: product.name,
+            images: product.images,
+            price: product.price,
+            countInStock: product.countInStock,
+            qty: 1,
     };
 
-    const existingItem = cartItems.find((item) => item.product === product._id);
+    const existingItem = cartItems.find((item) => item && item.productId === product._id);
     if (!existingItem) {
       cartItems.push(newItem);
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
       setIncart(true);
+    }else{
+      cartItems = cartItems.filter((item)=>item && item.productId !== product._id)
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      setIncart(false)
     }
   };
 
@@ -44,14 +57,14 @@ const CardProduct = ({ product }) => {
         <div name="imgDiv">
           
           <Image name="imgProduct" boxSize="350px" objectFit="cover" src={
-            `${PORT}${product.images[0]}` || product.images[0]} />
+            `${PORT}/${product.images[0]}` || product.images[0]} />
         </div>
         <div name="bottomcard">
           <Link to={`/product/${product._id}`}>
             <span>{product.name}</span>
           </Link>
           {Incart ? (
-            <HiShoppingCart name="iconFav" size="26" />
+            <HiShoppingCart name="iconFav" size="26" onClick={addcart} />
           ) : (
             <HiOutlineShoppingCart
               name="iconFav"

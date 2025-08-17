@@ -21,7 +21,7 @@ const Orders = ({userInfo}) => {
                 }
             }
             setlLoading(true)
-            const {data} = await axios.get(`${PORT}orders/`,config)
+            const {data} = await axios.get(`${PORT}/orders/`,config)
             console.log(data)
             setOrders(data)
             setlLoading(false)
@@ -52,7 +52,7 @@ const Orders = ({userInfo}) => {
             </Helmet>
         <h1 className = 'titlepanel'>{orders.length} Orders :</h1>
         {loading ?  <div className='loading'>
-                     <HashLoader   color={"#1e1e2c"}  loading={loading} size={40} />
+                     <HashLoader   color="orange"  loading={loading} size={40} />
                    </div> : 
                    error ? <h1>error</h1> :
                    <Box overflowX = 'auto'>

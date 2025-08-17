@@ -21,16 +21,40 @@ const Cartpage = () => {
     }) 
     const [cartItems,setCartItems] = useState([])
     const getCart = ()=>{
-      const cart = localStorage.getItem('cartItems')
-      return cart ? JSON.parse(cart) : []
+      let cart = JSON.parse(localStorage.getItem('cartItems')) || []
+      cart = cart.filter((item)=> item && item.productId &&item.qty !== undefined)
+      
+      return cart 
+      
     }
+    
     const saveCart = (items)=>{
       localStorage.setItem('cartItems',JSON.stringify(items))
     }
 
 const addToCart = async (id, qty) => {
+  // const { data } = await axios.get(`${PORT}/products/${id}`);
+  // setCartItems(prevItems =>{
+  //   const exist = prevItems.find(item=>item && item.productId === id)
+  //   if(exist){
+  //     const updated = prevItems.map(item=>item.productId===id?{...item,qty}:item)
+  //     saveCart(updated)
+  //     return updated
+  //   }else{
+  // const newItem = {
+  //   productId: data._id,
+  //   name: data.name,
+  //   images: data.images,
+  //   price: data.price,
+  //   countInStock: data.countInStock,
+  //   qty,
+  // };
+  // const updated = [...prevItems,newItem]
+  // return updated
+  //   }
+  // })
   const carts = getCart();
-  const { data } = await axios.get(`${PORT}products/${id}`);
+  const { data } = await axios.get(`${PORT}/products/${id}`);
 
   const newItem = {
     productId: data._id,

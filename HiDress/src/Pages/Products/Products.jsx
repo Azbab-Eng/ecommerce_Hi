@@ -101,9 +101,9 @@ const Products = ({userInfo}) => {
             <Helmet>
                 <title>products</title>
             </Helmet>
-        <h1 className = 'titlepanel'> Products :</h1>
+        <h1 className = 'titlepanel'> Products : {!loading && products.length}</h1>
         {loading || loadingDelete || loadingCreate ?  <div className='loading'>
-                     <HashLoader   color={"#1e1e2c"}  loading={loading || loadingDelete || loadingCreate} size={40} />
+                     <HashLoader   color="orange"  loading={loading || loadingDelete || loadingCreate} size={40} />
                    </div> : 
                    error || errorDelete || errorCreate  ? <h1>{error || errorDelete || errorCreate}</h1> : 
                    <>

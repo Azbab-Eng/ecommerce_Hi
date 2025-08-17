@@ -295,7 +295,7 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
          :
          <div className = 'tableorder'>
            {loading ? <div className='loading'>
-                          <HashLoader   color={"#fff"}  loading={loading} size={40} />
+                          <HashLoader   color="orange"  loading={loading} size={40} />
                      </div>  : errorOrders ? <h1>{errorOrders}</h1>
                      :
                      <Table size="sm">

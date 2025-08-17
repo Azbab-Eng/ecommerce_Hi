@@ -63,7 +63,7 @@ const Order = ({userInfo}) => {
                 }
             }
             setLoadingpay(true)
-            const {data} = await axios.put(`${PORT}orders/${orderId}/pay`,paymentResult,config)
+            const {data} = await axios.put(`${PORT}/orders/${orderId}/pay`,paymentResult,config)
             setOrder(data)
             setSuccessPay(true)
             setLoadingpay(false)  
@@ -81,7 +81,7 @@ const Order = ({userInfo}) => {
                 }
             }
             setloadingDeliver(true)
-            const {data} = await axios.put(`${PORT}orders/${order._id}/deliver`,{},config)
+            const {data} = await axios.put(`${PORT}/orders/${order._id}/deliver`,{},config)
             setOrder(data)
             setloadingDeliver(false)
             setSuccessDeliver(true)
@@ -103,7 +103,7 @@ const Order = ({userInfo}) => {
             navigate('/login')
         }
         const addPaypalscript = async () =>{
-            const {data : clientId} = await axios.get(`${PORT}config/paypal`) 
+            const {data : clientId} = await axios.get(`${PORT}/config/paypal`) 
             const script = document.createElement('script')
             script.type = 'text/javascript'
             script.async = true
@@ -192,7 +192,7 @@ const Order = ({userInfo}) => {
         deliverOrder(order)
     }
     return loading || loadingDeliver ? <div className='loading-product'>
-                        <HashLoader   color={"#1e1e2c"}  loading={loading || loadingDeliver} size={50} />
+                        <HashLoader   color="orange"  loading={loading || loadingDeliver} size={50} />
                      </div> : error ? <h1>{error}</h1> :
     (
         <div className="placeorder">
@@ -264,10 +264,10 @@ const Order = ({userInfo}) => {
                         {!order.isPaid && (
                             <>
                             {loadingpay && <div className='loading-product'>
-                                            <HashLoader   color={"#1e1e2c"}  loading={loading} size={50} />
+                                            <HashLoader   color="orange"  loading={loading} size={50} />
                                            </div> }
                             {!sdkReady ? <div className='loading-product'>
-                                            <HashLoader   color={"#1e1e2c"}  loading={loading} size={50} />
+                                            <HashLoader   color="orange"  loading={loading} size={50} />
                                            </div> :
                                            <div className = 'paypalbuttons'>
                                            <PayPalButton className = 'buttonsp' amount = {order.totalPrice} onSuccess = {successpaymenthandler}/>

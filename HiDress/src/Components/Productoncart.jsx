@@ -21,27 +21,31 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
     
     const addToCart = async (id, qty) => {
         const carts = getCart();
-        const { data } = await axios.get(`${PORT}products/${id}`);
-
+        const { data } = await axios.get(`${PORT}/products/${id}`);
+        console.log(qty)
+        console.log(data)
         const newItem = {
             productId: data._id,
             name: data.name,
             images: data.images,
             price: data.price,
             countInStock: data.countInStock,
-            qty,
+            qty
         };
-
+        console.log(newItem)
         const exist = carts.find((cart) => cart.productId === data._id);
 
-        let updatedItems;
+        let updatedItems 
+        // = [...carts, newItem]
         if (exist) {
             updatedItems = carts.map((cart) =>
-            cart.productId === data._id ? { ...cart, qty: cart.qty } : cart
+            cart.productId === data._id ? { ...cart, qty: qty } : cart.qty
             );
+            console.log(updatedItems)
         } else {
             updatedItems = [...carts, newItem]; // use newItem here directly
-  }
+            console.log(updatedItems)
+        }
   console.log(id,qty)
   saveCart(updatedItems);
   setCartItems(updatedItems); // also update state here
@@ -72,7 +76,7 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
     return (
         <div className = 'productcart'>
             <div className = 'imagecart'>
-            <Image objectFit="cover" src = {`${PORT}${product?.image}`}/>
+            <Image objectFit="cover" src = {`${PORT}/${product?.image}`}/>
 
             </div>
                 <div>
@@ -85,15 +89,15 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
                 <h2 className = 'priceproduct'>
                     {product.price}$</h2>
                 <h2 className = 'sandh'>
-                    sold and shiped by FedEx</h2>
+                    sold and shiped by Hidressup</h2>
 
                 </div>
                 <div className = 'qtyoption' >
                 <Select ref = {select} defaultValue = {product.qty} 
                 onChange ={
-                    async e =>{ 
-                        await setQty(e.target.value)
-                        addToCart(product.productId,qty)
+                     e =>{ 
+                         setQty(e.target.value)
+                        addToCart(product.productId,e.target.value)
                         console.log(e.target.value)
                        
                         console.log(product.qty)

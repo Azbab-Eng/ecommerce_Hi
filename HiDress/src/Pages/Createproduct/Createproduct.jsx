@@ -138,7 +138,7 @@ const Createproduct = ({userInfo}) => {
                {/* {successUpdate && <h4>Profile Updated</h4>} */}
                { lodingUpdate ? 
                         <div className='loading'>
-                            <HashLoader   color={"#1e1e2c"}  loading={lodingUpdate} size={40} />
+                            <HashLoader   color="orange" loading={lodingUpdate} size={40} />
                         </div>
                 
                 : errorUpdate ? <h4>{errorUpdate}</h4> :

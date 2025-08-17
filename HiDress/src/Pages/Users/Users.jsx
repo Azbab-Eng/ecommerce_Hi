@@ -96,7 +96,7 @@ const Users = ({ userInfo, setUserInfo }) => {
       <h1 className='titlepanel'> Users :</h1>
       <h1>{success}</h1>
       {loading ? <div className='loading'>
-        <HashLoader color={"#1e1e2c"} loading={loading} size={40} />
+        <HashLoader color="orange" loading={loading} size={40} />
       </div> : error ? <h1 style={{marginBottom:'100px'}} >{error}</h1> : 
       
         <Box overflowX='auto' >
