@@ -8,7 +8,7 @@ import wave from '../img/wavev.png'
 import { Helmet } from 'react-helmet';
 import { IoIosArrowDown } from 'react-icons/all';
 import HashLoader from "react-spinners/RingLoader";
-// import "./Profile.css"
+import "./Profile.css"
 
 import {
   Button, Input, Table,  Thead,
@@ -21,7 +21,7 @@ import {
 } from "@chakra-ui/react"
 import { AiOutlineEdit } from 'react-icons/ai'
 
-const ProfileScreen = ({userInfo,setUserInfo}) => {
+const Profile = ({userInfo,setUserInfo}) => {
   // const [name,setName] = useState('')
   const [ShowOrders,setShowOrders] = useState(false)
   const navigate = useNavigate()
@@ -69,18 +69,11 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
 
   const getUserDetails = async (_id)=> {
     try {
-      // dispatch({ type: USER_DETAILS_REQUEST });
-  
-      // const {
-      //   userLogin: { userInfo },
-      // } = getState();
-  
       const config = authConfig(userInfo.token);
   
       const { data } = await axios.get(`${PORT}/users/${_id}`, config);
       setMessage(data?.message || "User Details Successful")
       setUserInfo(data)
-      // dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
     } catch (error) {
       setMessage(error.response?.data?.message || "Something Wrong")
 
@@ -98,7 +91,6 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
       setSuccess(true)
       console.log(data)
       console.log(userData)
-      // dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data });
     } catch (error) {
       setError(true)
       console.log(error)
@@ -107,42 +99,17 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
     }
   };
 
-  const listMyOrders = () => async(dispatch, getState) => {
+  const listMyOrders = async () => {
       try {
-          // dispatch({
-          //     type: ORDER_LIST_MY_REQUEST
-          // })
-  
-          // const { userLogin: {userInfo} } = getState()
-          authConfig(userInfo.token)
-          // const config = {
-          //     headers:{
-          //         Authorization: `Bearer ${userInfo.token}`
-          //     }
-          // }
+          const config = authConfig(userInfo.token);
           setLoading(true)
           const {data} = await axios.get(`${PORT}/orders/myorders`,config)
           setOrders(data)
           setLoading(false)
-          setErrorOrders("Cant get Order list")
-          // dispatch({
-          //     type: ORDER_LIST_MY_SUCCESS,
-          //     payload: data
-          // })
-  
-  
          
       } catch (error) {
         setLoading(false)
-        setErrorOrders("Cant get Order list")
-          dispatch({
-              type: ORDER_LIST_MY_FAIL,
-              payload: 
-                  error.response && error.response.data.message
-                  ? error.response.data.message
-                  : error.message,
-          })
-          
+        setErrorOrders(error.response?.data?.message || "Cant get Order list")
       }
   };
 
@@ -155,11 +122,12 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
         if(!userInfo.name)
         {
             getUserDetails(userInfo._id)
-            listMyOrders()
+            // listMyOrders()
         }else{
             setUserData({...userData,name:userInfo.name})
             setUserData({...userData,email:userInfo.email})
-            // setEmail(userInfo.email)
+            listMyOrders()
+          
         }
     }
   }, [ userInfo,])
@@ -206,102 +174,93 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
 
   }
 
-    return (
-    <div className="registerSc">
+
+        return (
+    <div className="profile-container">
       <Helmet>
         <title>Profile</title>
       </Helmet>
-      <div className="containera">
-              
-		<div className="imga">
-			<Image src={''} />
-		</div>
-    <div className = 'rightinfos'>
-    <div className = 'showbtn' onClick = {()=>setShowOrders(!ShowOrders)}>{ShowOrders ? 'Show my infos' :'Show my orders'} <IoIosArrowDown /></div>
-    <>
-    {!ShowOrders ? 
-		<div className= 'login-content'>
-			<form onSubmit={submitHandler}>
-				<Image src={''} />
-				{error && <h4>{error}</h4>}
-                {success && <h4>Profile Updated</h4>}
-                
+      <h1 className="profile-title">My Profile</h1>
+        {error && <h4>{error}</h4>}
+        {success && <h4>Profile Updated</h4>}
+      <div className="profile-grid">
+        {/* Profile Card */}
+        <div className="profile-card">
+            
+          <img src={wave} alt="User" className="profile-avatar" />
+          <h2>{userData.name}</h2>
+          <p>{userData.email}</p>
+        </div>
 
-
-
-                <div className="input-div zz">
-                       <div className="i">
-           		   		<i className="fas fa-user"></i>
-           		   </div>
-                   <div className="div">
-           		   		
-           		   		<input type="text" value={userData.name} readOnly = {isEditablename} ref = {nameinput} className="inputa" placeholder="Enter name"  onChange={(e) => setUserData({...userData,name:e.target.value})}/>
-           		   </div>
-
-           		   
-           		</div>
-               <AiOutlineEdit size ='26' className = 'edit' onClick = {nameinputfocus}/>
-
-
-
-           		<div className="input-div one">
-                       
-
-           		   <div className="i">
-           		   		<i className="fas fa-envelope"></i>
-           		   </div>
-           		   <div className="div">
-           		   		
-           		   		<input type="text" value={userData.email} readOnly = {isEditableemail} ref = {emailinput} className="inputa" placeholder="Enter email" onChange={(e) => setUserData({...userData,email:e.target.value})} />
-           		   </div>
-                  
-           		</div>
-               <AiOutlineEdit size ='26' className = 'edit' onClick = {()=>{setisEditableemail(!isEditableemail)
+        {/* Edit Profile */}
+        <div className="profile-form">
+          <h2>Edit Profile</h2>
+          <form onSubmit={submitHandler}>
+            <div>
+            <label>Name</label>
+            <input type="text" 
+            value={userData.name} 
+            readOnly = {isEditablename} 
+            ref = {nameinput} className="inputa" 
+            placeholder="Enter name"  
+            onChange={(e) => 
+            setUserData({...userData,name:e.target.value})}
+            />
+            <AiOutlineEdit size ='26' 
+            className = 'edit' 
+            onClick = {nameinputfocus}/>
+            </div>
+            <div>
+            <label>Email</label>
+            <input type="text" 
+            value={userData.email} 
+            readOnly = {isEditableemail} 
+            ref = {emailinput} className="inputa" 
+            placeholder="Enter email" 
+            onChange={(e) => 
+            setUserData({...userData,email:e.target.value})} 
+            />
+             <AiOutlineEdit size ='26' 
+             className = 'edit' 
+             onClick = {()=>{setisEditableemail(!isEditableemail)
               emailinput.current.focus()
               }}/>
-
-
-
-                
-
-           		<div className="input-div pass">
-           		   <div className="i"> 
-           		    	<i className="fas fa-lock"></i>
-           		   </div>
-           		   <div className="div">
-           		    	
-           		    	<input type="password" value={userData.password} required className="inputa" placeholder="Enter password" onChange={(e) => setUserData({...userData,password:e.target.value})}/>
-            	   </div>
-            	</div>
-
-
-                <div className="input-div passconf">
-           		   <div className="i"> 
-           		    	<i className="fas fa-lock"></i>
-           		   </div>
-           		   <div className="div">
-           		    	
-           		    	<input type="password" value={confirmPassword} className="inputa" placeholder="Confirm password" onChange={(e) => setConfirmPassword(e.target.value)}/>
-            	   </div>
-            	</div>
-                {message && <h4 className = 'Message'>{message}</h4>}
-                <input type="submit" className="btna2" value="Update"/>
-               
-            	
-                
-              
-            </form>
+              </div>
+            <div>
+            <label>Password</label>
+            <input type="password" 
+            value={userData.password} required 
+            className="inputa" 
+            placeholder="Enter password" 
+            onChange={(e) => setUserData({...userData,password:e.target.value})}
+            />
+            </div>
+            <div>
+            <label>Comfirm Password</label>
+            <input type="password" 
+            value={confirmPassword} 
+            className="inputa" 
+            placeholder="Confirm password" 
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            </div>
+            {message && <h4 className = 'Message'>{message}</h4>}
+    <input type="submit" className="btna2" id='btn' value="Save Changes"/>
+            {/* <button type="submit">Save Changes</button> */}
+          </form>
         </div>
-         :
-         <div className = 'tableorder'>
-           {loading ? <div className='loading'>
+      </div>
+
+      {/* Order History */}
+        <div className = 'order-history'>
+           {loading && !orders? <div className='loading'>
                           <HashLoader   color="orange"  loading={loading} size={40} />
-                     </div>  : errorOrders ? <h1>{errorOrders}</h1>
-                     :
+                     </div>  : errorOrders && !orders ? <h1>{errorOrders}</h1>
+                     : orders &&
                      <Table size="sm">
                        <Thead>
                         <Tr>
-                            <Th>_ID</Th>
+                            <Th>ID</Th>
                             <Th>DATE</Th>
                             <Th>TOTAL</Th>
                             <Th>PA_ID</Th>
@@ -311,14 +270,14 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
                       </Thead>
                       <Tbody>
                         {orders.map(order=>(    
-                        <Tr key = {order.__id}>
-                          <Td>{order.__id}</Td>
+                        <Tr key = {order._id}>
+                          <Td>{order._id}</Td>
                           <Td>{order.createdAt.substring(0,10)}</Td>
                           <Td>{order.totalPrice}</Td>
                           <Td>{order.isPa_id ? order.pa_idAt.substring(0,10) : 'Not Pa_id Yet'}</Td>
                           <Td>{order.isDelivered ? order.deliveredAt.substring(0,10) : 'Not Yet'}</Td>
                           <Td>
-                            <Link to ={ `/order/${order.__id}`}>
+                            <Link to ={ `/order/${order._id}`}>
                             <Button size="xs">DETAILS</Button>
                             </Link>
                           </Td>
@@ -328,12 +287,10 @@ const ProfileScreen = ({userInfo,setUserInfo}) => {
                      </Table>
                      }
          </div>
-         }
-        </>
-      </div>
     </div>
-        </div>
-    )
+  );
+
+
 }
 
-export default ProfileScreen
+export default Profile

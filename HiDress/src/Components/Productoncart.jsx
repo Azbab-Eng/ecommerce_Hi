@@ -59,7 +59,7 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
 
 
     useEffect(() => {
-        console.log(product.image)
+        console.log(product.images)
         return () => {
         }
     },[])
@@ -76,8 +76,8 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
     return (
         <div className = 'productcart'>
             <div className = 'imagecart'>
-            <Image objectFit="cover" src = {`${PORT}/${product?.image}`}/>
-
+            <Image objectFit="cover" src = {`${PORT}/${product?.images[0]}`}/>
+                
             </div>
                 <div>
                     <Link to = {`/product/${product.productId}`}>
@@ -87,7 +87,7 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
                     </Link>
 
                 <h2 className = 'priceproduct'>
-                    {product.price}$</h2>
+                    {(product.price)}$</h2>
                 <h2 className = 'sandh'>
                     sold and shiped by Hidressup</h2>
 
@@ -97,7 +97,7 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
                 onChange ={
                      e =>{ 
                          setQty(e.target.value)
-                        addToCart(product.productId,e.target.value)
+                        // addToCart(product.productId,e.target.value)
                         console.log(e.target.value)
                        
                         console.log(product.qty)

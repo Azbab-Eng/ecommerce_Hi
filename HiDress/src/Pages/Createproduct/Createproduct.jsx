@@ -245,7 +245,7 @@ const Createproduct = ({userInfo}) => {
                    </div>
                 </div>
                 {message && <h4 className = 'Message'>{message}</h4>}
-                <input type="submit" className="btna2 postionbtnupdate" value="Update"/>
+                <input type="submit" className="btna2 postionbtnupdate" value="Create"/>
                 
                 </div>
                 

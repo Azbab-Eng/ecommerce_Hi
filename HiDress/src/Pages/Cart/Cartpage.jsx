@@ -10,7 +10,7 @@ import axios from 'axios';
 
 const Cartpage = () => {
     const PORT = import.meta.env.VITE_API_URL
-  
+    const delivery = 5
     const {id} = useParams()
     const location = useLocation()
     const params =new URLSearchParams(location.search)
@@ -118,7 +118,9 @@ useEffect(() => {
         </div>
         <div className = 'totalcart'>
             <h3>
-            Subtotal ({cartItems.reduce((acc,item)=>acc+item.qty,0)} items) :
+            Subtotal ({cartItems.reduce((acc,item )=>
+              ( Number(acc.qty) + Number(item.qty) )
+              )} items) :
 
             </h3>
             <h3 className = 'totalprice'>
@@ -132,7 +134,7 @@ useEffect(() => {
 
             </h3>
             <h3 className = 'totalprice'>
-            For free.
+            {delivery}$
 
             </h3>
             <h3>
@@ -149,9 +151,10 @@ useEffect(() => {
             </h3>
             <h3 className = 'totalprice'>
             {cartItems.reduce((acc,item )=>
-                acc + item.qty * item.price,0
+              // delivery +  acc + item.qty * item.price,0
+              ( Number(acc.qty)*acc.price + Number(item.qty)*item.price + delivery )
 
-             ).toFixed(2)}$
+             ) }$
             </h3>
             <button className = 'checkoutbtn' disabled={cartItems.length===0} onClick={checkoutHandler}>
             CHECKOUT
