@@ -111,7 +111,7 @@ useEffect(() => {
             <h1>Your Cart : {cartItems.length}</h1>
             <div className ='productsoncart'>
             {cartItems?.map(product =>(
-                    <Productoncart product = {product} qty={qty} setQty={setQty} cartItems={cartItems} setCartItems={setCartItems} />
+                    <Productoncart product={product} qty={qty} setQty={setQty} cartItems={cartItems} setCartItems={setCartItems} />
                 ))}
             </div>
 
