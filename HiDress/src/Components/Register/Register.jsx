@@ -38,16 +38,20 @@ const Register = () => {
       setMessage("Password doesnt match")
       console.log('no match')
       return
-    }
-    try{
+    }else{
+          try{
         const res = await axios.post(`${PORT}/users`,formData,config)  
         setMessage(res.data.message) 
         setStep('otp')
     }
     catch(error){
-      setMessage(error.response?.data?.message || "Something went wrong") 
+      console.log(error)
+      setMessage(error.response?.data?.message || "Something went wrong")
+      console.log(error.response?.data?.message)
       setStep('form')
     }
+    }
+
   }
   const verifyOtp = async(e)=>{
     e.preventDefault()
@@ -58,7 +62,7 @@ const Register = () => {
     try{
       const res = await axios.post(`${PORT}/users/verify`,{otp, email:formData.email})
       setMessage(res.data.message || "Verification Successful!")
-      navigate('/')
+      navigate('/login')
     }
     catch(error){
       setMessage(error.response?.data?.message || "Invalid Otp")
