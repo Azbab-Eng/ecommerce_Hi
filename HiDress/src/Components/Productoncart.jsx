@@ -6,7 +6,7 @@ import { Link,useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
-
+    
     // const [qty,setqty] = useState(0)
     const select = useRef(null);
     const PORT = import.meta.env.VITE_API_URL
@@ -19,8 +19,8 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
       localStorage.setItem('cartItems',JSON.stringify(items))
     }
     
-    const addToCart = async (id, qty) => {
-        const carts = getCart();
+    const addToCart = async (id, qty=qty) => {
+        let carts = getCart();
         const { data } = await axios.get(`${PORT}/products/${id}`);
         console.log(qty)
         console.log(data)
@@ -33,13 +33,16 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
             qty
         };
         console.log(newItem)
-        const exist = carts.find((cart) => cart.productId === data._id);
+        console.log(carts)
+        const valid = carts.filter((cart)=>cart !== null)
+        const exist = valid.find((cart) =>cart && cart.productId === data._id);
+        carts = valid
 
         let updatedItems 
         // = [...carts, newItem]
         if (exist) {
             updatedItems = carts.map((cart) =>
-            cart.productId === data._id ? { ...cart, qty: qty } : cart.qty
+            cart.productId === data._id ? { ...cart, qty: qty } : cart
             );
             console.log(updatedItems)
         } else {
@@ -67,13 +70,14 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
     const optionvalue = () => {
         const qty = parseInt(select.current?.value)
         //  setqty(parseInt(select.current.value));
-        // addToCart(id,qty)
+        // addToCart(id)
          console.log(qty)
     }
     const removeFromCartHandler  = (id) =>{
         removeFromCart(id)
     }
     return (
+        
         <div className = 'productcart'>
             <div className = 'imagecart'>
             <Image objectFit="cover" src = {`${PORT}/${product?.images[0]}`}/>
@@ -93,11 +97,11 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
 
                 </div>
                 <div className = 'qtyoption' >
-                <Select ref = {select} defaultValue = {product.qty} 
+                <Select _readOnly={false} ref = {select} defaultValue = {product.qty} 
                 onChange ={
                      e =>{ 
                          setQty(e.target.value)
-                        // addToCart(product.productId,e.target.value)
+                        addToCart(product.productId,e.target.value)
                         console.log(e.target.value)
                        
                         console.log(product.qty)

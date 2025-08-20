@@ -19,6 +19,14 @@
     align-items: center;
     height: 100%;
 }
+.msgs{
+    background: rgb(236, 154, 2);
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 10px 70px;
+}
 .conform{
     display: flex;
     flex-direction: row;

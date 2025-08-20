@@ -46,6 +46,7 @@ const Login = ({ setUserInfo }) => {
             <title>Login</title>
           </Helmet>
           <div className='cong'>
+            <h2 className={message && "msgs"}>{message}</h2>
             <div className='conform'>
               <div className='left'><img src={lfImg} alt="left_img" /></div>
                 {/* {<h4>{message}</h4>} */}

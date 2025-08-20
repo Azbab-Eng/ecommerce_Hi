@@ -61,12 +61,12 @@ const App = () => {
             <Nav userInfo={userInfo} setUserInfo={setUserInfo}/>
             <div style={{padding:"70px 0 0 0"}}>
                 <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home />} key={location.pathname}/>
                 <Route path="/about" element={<About />} />
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/contactus" element={<Contactus />} />
                 <Route path="/product/:id" element={<Productpage />} />
-                <Route path="/cart/:id?" element={<Cartpage  />} />
+                <Route path="/cart/:id?" element={<Cartpage  />} key={location.pathname} />
                 <Route path="/login" element={<Login setUserInfo={setUserInfo} />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile userInfo={userInfo} setUserInfo={setUserInfo} />} />

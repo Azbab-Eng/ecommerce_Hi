@@ -45,7 +45,7 @@ const Register = () => {
         setStep('otp')
     }
     catch(error){
-      setMessage(error.response?.data?.error || "Something went wrong") 
+      setMessage(error.response?.data?.message || "Something went wrong") 
       setStep('form')
     }
   }
@@ -71,6 +71,7 @@ const Register = () => {
             <title>Register</title>
           </Helmet>
           <div className='cong'>
+            <h2 className={message && "msgs"}>{message}</h2>
             <div className='conform'>
               <div className='left'><img src={lfImg} alt="left_img" /></div>
                 {/* {<h4>{message}</h4>} */}

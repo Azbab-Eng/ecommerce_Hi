@@ -50,7 +50,7 @@ const Orders = ({userInfo}) => {
             <Helmet>
                 <title>Orders</title>
             </Helmet>
-        <h1 className = 'titlepanel'>{orders.length} Orders :</h1>
+        <h1 className = 'titlepanel'> Orders :{orders.length}</h1>
         {loading ?  <div className='loading'>
                      <HashLoader   color="orange"  loading={loading} size={40} />
                    </div> : 

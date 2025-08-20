@@ -119,8 +119,8 @@ useEffect(() => {
         <div className = 'totalcart'>
             <h3>
             Subtotal ({cartItems.reduce((acc,item )=>
-              ( Number(acc.qty) + Number(item.qty) )
-              )} items) :
+              acc + Number(item.qty),0 )
+              } items) :
 
             </h3>
             <h3 className = 'totalprice'>
@@ -152,9 +152,9 @@ useEffect(() => {
             <h3 className = 'totalprice'>
             {cartItems.reduce((acc,item )=>
               // delivery +  acc + item.qty * item.price,0
-              ( Number(acc.qty)*acc.price + Number(item.qty)*item.price + delivery )
+              acc + Number(item.qty)*item.price,0 
 
-             ) }$
+             ) + delivery}$
             </h3>
             <button className = 'checkoutbtn' disabled={cartItems.length===0} onClick={checkoutHandler}>
             CHECKOUT

@@ -93,7 +93,7 @@ const Users = ({ userInfo, setUserInfo }) => {
       <Helmet>
         <title>Users</title>
       </Helmet>
-      <h1 className='titlepanel'> Users :</h1>
+      <h1 className='titlepanel'> Users : {users.length}</h1>
       <h1>{success}</h1>
       {loading ? <div className='loading'>
         <HashLoader color="orange" loading={loading} size={40} />

@@ -5,7 +5,7 @@ import ShopNowBtn from './ShopNowBtn'
 const Slider = () => {
      const SliderData = [
         {
-          title: 'Jackets & Coats',
+          title: 'Outfits & Vintages',
           subtitle :'Quality Matters.'
         },
         {
@@ -14,13 +14,13 @@ const Slider = () => {
         },
         {
  
-            title: 'The Best Shoes',
-            subtitle :'Comfort For your long day'
+            title: 'Here Are Your Best Embroideries ',
+            subtitle :'Comfort For Your House Design'
         },
         {
  
-            title: 'Next Season Is here',
-            subtitle :'Enjoy your summer with us.'
+            title: 'Patronize HidressUp',
+            subtitle :'We Give You Taste and Durable Products.'
         }
       ];
     const [current, setCurrent] = useState(0);

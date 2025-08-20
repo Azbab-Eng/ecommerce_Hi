@@ -233,7 +233,14 @@ form {
 .text-forgot {
   color: black;
 }
-
+.msgs{
+    background: rgb(236, 154, 2);
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 10px 70px;
+}
 .login-content h1 {
   font-size: 30px;
   margin-bottom: 30px;

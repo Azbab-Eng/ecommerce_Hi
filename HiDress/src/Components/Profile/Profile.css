@@ -47,15 +47,23 @@
   flex-direction: column;
 }
 
+.profile-form div{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 .profile-form label {
+  min-width: 160px;
   font-weight: bold;
   margin-top: 10px;
 }
 
 .profile-form input {
   padding: 8px;
+  margin-left: 10px;
   margin-top: 5px;
   border-radius: 6px;
+  min-width: 300px;
   border: 1px solid #ccc;
 }
 
