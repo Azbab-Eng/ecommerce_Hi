@@ -12,6 +12,7 @@ const Checkout = () => {
     // const [city, setCity] = useState(shippingAddress.city)
     // const [postalCode, setPostalCode] = useState(shippingAddress.postalCode)
     // const [country, setCountry] = useState(shippingAddress.country)
+    const countries = ["Nigeria","USA","Cairo","UK","Saudi"]
     const [paymentMethod, setPaymentMethod] = useState('Card')
     const [order,setOrder] = useState({})
     const [carddetails, setcarddetails] = useState(true)
@@ -72,10 +73,11 @@ const Checkout = () => {
                         <Stack spacing={3}>
                             
                             <Select variant="flushed" onChange = {(e) =>  setShippingAddress({...shippingAddress,country:e.target.value})} >
-                                <option value="Maroc">Maroc</option>
+                                {countries.map((country)=><option value="Maroc">{country}</option>)}
+                                {/* <option value="Maroc">Maroc</option>
                                 <option value="Algerie">Algerie</option>
                                 <option value="France">France</option>
-                                <option value="Espagne">Espagne</option>
+                                <option value="Espagne">Espagne</option> */}
                             </Select>
                             
                         </Stack>

@@ -28,10 +28,10 @@ const Order = ({userInfo}) => {
     const [loadingDeliver,setloadingDeliver] = useState(false)
     const [successDeliver,setSuccessDeliver] = useState(false)
 
-    const addDecimals = (num) =>{
-        return (Math.round(num * 100) / 100).toFixed(2)
-    }
-        order.itemsPrice = addDecimals(order.orderItems.reduce((acc,item) => acc + item.price * item.qty, 0))
+    // const addDecimals = (num) =>{
+    //     return (Math.round(num * 100) / 100).toFixed(2)
+    // }
+    //     order.itemsPrice = addDecimals(order.orderItems.reduce((acc,item) => acc + item.price * item.qty, 0))
     
         //  const getOrderDetails = async (id)=>{
         //     try {
@@ -99,6 +99,8 @@ const Order = ({userInfo}) => {
     // },[orderId])
 
     useEffect(() => {
+        console.log(order)
+        console.log(orderId)
         if(!userInfo){
             navigate('/login')
         }

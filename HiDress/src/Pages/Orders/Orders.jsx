@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import HashLoader from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/RingLoader";
 import { Helmet } from 'react-helmet';
 import {Button, Input, Table,  Thead,Tbody,Tr,Th,Td,Stack,Box} from "@chakra-ui/react"
 import { Link, useNavigate } from 'react-router-dom';

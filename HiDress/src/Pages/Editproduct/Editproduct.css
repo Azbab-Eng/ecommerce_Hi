@@ -1,8 +1,36 @@
 .urls {
   height: max-content;
 }
-.postionbtnupdate {
+/* .postionbtnupdate {
   position: relative;
   top: 80px;
   margin-bottom: 50px;
+} */
+.postionbtnupdate {
+  display: block;
+  min-width: 30%;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-color: rgb(206, 135, 2);
+  background-size: 200%;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  margin: auto 0;
+  cursor: pointer;
+  transition: 0.5s;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.Edituser{
+  padding: 20px 50px;
+}
+.Edittitle{
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
