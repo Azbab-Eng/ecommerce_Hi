@@ -119,10 +119,10 @@ const Placeorder = ({userInfo}) => {
                             <h1>Order Summary</h1>
                             
                                     <div className="calculs-placeorder">
-                                <h3>Items: </h3><p>${cart.itemsPrice}</p>
-                                <h3>Shipping: </h3><p>${cart.shippingPrice}</p>
+                                <h3>Items: </h3><p>${cart.itemsPrice }</p>
+                                <h3>Shipping: </h3><p>$ {5 + Number(cart.shippingPrice) } </p>
                                 {/* <h3>Tax: </h3><p>${cart.taxPrice}</p> */}
-                                <h3>Total: </h3><p>${cart.totalPrice}</p>
+                                <h3>Total: </h3><p>${cart.totalPrice + 5}</p>
                                 <div className="div-placeorder-btn"> 
                                     <button className="placeorder-btn" onClick = {Placeorderhanlder}>Place Order</button>
                                 </div>

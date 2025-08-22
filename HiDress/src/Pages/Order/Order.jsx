@@ -235,7 +235,7 @@ const Order = ({userInfo}) => {
                         <div className="orders-placeorder">
                         {order.orderItems.map((item, index) => (
                                 
-                            <p key = {index}><span className="color-name"><Link to={`/product/${item.product}`}>{item.name}</Link></span> <b>{item.qty} x ${item.price} = ${item.qty * item.price}</b><hr className= 'hr' /></p>
+                            <p key = {index}><span className="color-name"><Link to={`/product/${item.productId}`}>{item.name}</Link></span> <b>{item.qty} x ${item.price} = ${item.qty * item.price}</b><hr className= 'hr' /></p>
                           
 
                         ))}
@@ -251,8 +251,8 @@ const Order = ({userInfo}) => {
                             <h1>Order Summary</h1>
                             
                                     <div className="calculs-placeorder">
-                                <h3>Items: </h3><p>${order.itemsPrice}</p>
-                                <h3>Shipping: </h3><p>${order.shippingPrice}</p>
+                                <h3>Items: </h3><p>${order.totalPrice}</p>
+                                <h3>Shipping: </h3><p>${Number(order.shippingPrice)}</p>
                                 {/* <h3>Tax: </h3><p>${order.taxPrice}</p> */}
                                 <h3>Total: </h3><p>${order.totalPrice}</p>
                               </div>

@@ -73,7 +73,7 @@ const Checkout = () => {
                         <Stack spacing={3}>
                             
                             <Select variant="flushed" onChange = {(e) =>  setShippingAddress({...shippingAddress,country:e.target.value})} >
-                                {countries.map((country)=><option value="Maroc">{country}</option>)}
+                                {countries.map((country)=><option value={country}>{country}</option>)}
                                 {/* <option value="Maroc">Maroc</option>
                                 <option value="Algerie">Algerie</option>
                                 <option value="France">France</option>
