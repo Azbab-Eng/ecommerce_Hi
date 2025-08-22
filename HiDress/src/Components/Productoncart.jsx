@@ -80,7 +80,7 @@ const Productoncart = ({qty,setQty,product,cartItems,setCartItems}) => {
         
         <div className = 'productcart'>
             <div className = 'imagecart'>
-            <Image objectFit="cover" src = {`${PORT}/${product?.images[0]}`}/>
+            <Image objectFit="cover" src = {product?.images[0]}/>
                 
             </div>
                 <div>

@@ -57,7 +57,7 @@ const CardProduct = ({ product }) => {
         <div name="imgDiv">
           
           <Image name="imgProduct" boxSize="350px" objectFit="cover" src={
-            `${PORT}/${product.images[0]}` || product.images[0]} />
+            product.images[0]} />
         </div>
         <div name="bottomcard">
           <Link to={`/product/${product._id}`}>

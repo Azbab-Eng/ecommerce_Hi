@@ -94,7 +94,7 @@ useEffect(()=>{
         <div className = "product-imgs">
         <div className = "img-display">
             <div ref={imgShowcase}  className = "img-showcase">
-              {product?.images?.map((i)=><Image src= {`${PORT}/${i}`} />)}
+              {product?.images?.map((i)=><Image src= {i} />)}
               
             </div>
           </div>
@@ -103,7 +103,7 @@ useEffect(()=>{
             // <Image src= {`${PORT}${i}`} />
               <div className = "img-item">
                 <a href = "#" data-id = "2">
-                  <Image  objectFit="cover" boxSize = '200px' src = {`${PORT}/${i}`} alt = "shoe image"/>
+                  <Image  objectFit="cover" boxSize = '200px' src = {i} alt = "shoe image"/>
                 </a>
               </div>
           )}
