@@ -56,7 +56,7 @@ const CardProduct = ({ product }) => {
       >
         <div name="imgDiv">
           
-          <Image name="imgProduct" boxSize="350px" objectFit="cover" src={
+          <Image name="imgProduct" className='cardP' objectFit="cover" src={
             product.images[0]} />
         </div>
         <div name="bottomcard">

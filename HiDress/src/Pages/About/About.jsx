@@ -37,11 +37,17 @@ const About = () => {
                     <h1>
                         Why?
                     </h1>
-                <p>Commodo est cillum laboris proident exercitation 
-                    veniam excepteur do mollit aliquip irure. Consequat 
-                    adipisicing commodo anim aliqua labore nisi reprehenderit . Tempor ut 
-                   voluptate amet elit quis do ex nostrud minim proident veniam 
-                   nulla non esse.</p>
+                <p>At HiDressUp, we believe that fashion is more than just clothing — 
+                    it is a powerful form of self-expression, confidence, 
+                    and identity. Our journey began with a simple mission: 
+                    to make quality, stylish, and affordable fashion 
+                    accessible to everyone, regardless of age or lifestyle. 
+                    From our early beginnings as a small local brand, 
+                    we have grown into a platform that connects people 
+                    with carefully designed products that reflect elegance,
+                     comfort, and creativity. Every piece in our collection
+                      is crafted with attention to detail, inspired by both
+                       modern trends and timeless classics.</p>
                 </div>
                
                    <div className ='imagecontainer'>
@@ -61,13 +67,19 @@ const About = () => {
                     <h1>
                         How?
                     </h1>
-                <p>Commodo est cillum laboris proident exercitation 
-                    veniam excepteur do mollit aliquip irure. 
-                    Consequat adipisicing commodo anim aliqua labore 
-                    nisi reprehenderit dolore aliquip in eu est nulla. 
-                    Ea sint adipisicing elit id ullamco nisi cupidatat 
-                    nisi labore.
-.</p>
+                <p>At HiDressUp, our customers are at the heart of everything we do. 
+                    Thats why we provide a seamless shopping experience
+                     — from browsing products, adding to cart, 
+                     and secure checkout, to reliable delivery and 
+                     customer support. We are constantly innovating and 
+                     listening to feedback to ensure we meet and exceed 
+                     your expectations. We also understand that 
+                     fashion is personal. That’s why we offer customization,
+                      size guides, and detailed product descriptions to help you 
+                      make the right choice. For us, every order is more than
+                       just a transaction — it is a relationship built on 
+                       trust, satisfaction, and loyalty.</p>
+
                 </div>
             </div>
         </>

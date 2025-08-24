@@ -11,7 +11,7 @@ const Empty = () => {
     const [arrow, setarrow] = useState(false)
     return (
         <div className = 'Emptycart'>
-            <Image name="imgProduct" boxSize="350px" objectFit="cover" src={EmptyS}/>
+            <Image name="imgProduct" className='cardP' objectFit="cover" src={EmptyS}/>
 
             <div className = 'textempty'>
             <h1>

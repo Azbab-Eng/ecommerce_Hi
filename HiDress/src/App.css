@@ -394,7 +394,7 @@ nav {
   background: url("https://i.imgur.com/roN4Tqt.jpg") no-repeat center top/cover;
 }
 .cardscg:nth-child(3) {
-  /* background: url("./img1.jpg") no-repeat center top/cover; */
+  background: url("https://i.imgur.com/roN4Tqt.jpg") no-repeat center top/cover;
 }
 
 /* --- CgDiv ----*/
@@ -444,11 +444,11 @@ nav {
   min-width: 100px;
   height: 40px;
   cursor: pointer;
-  color: #888;
+  color: #eeebeb;
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   font-family: "Poppins-Regular", sans-serif;
-  background-color: #f2f2f2;
+  background-color: #976906;
   font-size: 15px;
   line-height: 1.2;
   transition: all 0.2s;
@@ -470,7 +470,7 @@ nav {
 
 .lined {
   color: #1e1e2c;
-  opacity: 0.5;
+  opacity: 0.8;
   list-style: none;
   cursor: pointer;
   transition: all 0.3s ease-out;
@@ -566,6 +566,12 @@ nav {
   justify-self: center;
   background-position: center;
 }
+.cardP {
+    object-fit: cover;
+    min-width: 350px;
+    max-height: 450px;
+}
+
 .QuickView {
   position: relative;
   opacity: 0;
@@ -755,10 +761,24 @@ nav {
   }
   .cardsProduct {
     margin-left: 60px;
+    font-size: 21px;
+    font-weight: 500;
+    margin-top: 30px;
   }
   .Cgfilter,
   .filterarea {
     margin: 0px;
+  }
+    .slide .titleslider {
+    font-size: 20px;
+    left: 20px;margin-top: -50px;
+  }
+
+  .slide .subtitleslider {
+    font-size: 12px;
+    left: 20px;
+    margin-top: -30px;
+
   }
   .filtersbtn {
     grid-row: 3/3;
@@ -818,3 +838,170 @@ img {
   background: #f64749;
   color: rgb(13, 13, 65);
 }
+
+
+
+/* MOBILE DESIGN */
+/* Mobile first - for screens up to 600px */
+@media screen and (max-width: 600px) {
+  .logo #lg {
+    height: 50px;
+    margin: 0 auto;
+  }
+
+  .navLinks {
+    width: 70%;
+    /* height: auto; */
+    flex-direction: column;
+    margin-top: 60px;
+  }
+
+  .rightComp {
+    width: 100%;
+    flex-direction: column;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .slide .titleslider {
+    font-size: 20px;
+    left: 20px;margin-top: -50px;
+  }
+
+  .slide .subtitleslider {
+    font-size: 12px;
+    left: 20px;
+    margin-top: -30px;
+
+  }
+
+  .ShopNow {
+    width: 130px;
+    font-size: 11px;
+    padding: 8px 12px;
+    margin: -10px auto; 
+  }
+.cardP{
+  max-height: 280px;
+  min-width: 300px;
+}
+  .cards,
+  .cardsProduct {
+    margin: 10px;
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  .sub-total,
+  .process-check .btn-process {
+    margin: 20px auto;
+    text-align: center;
+    display: block;
+  }
+    .slider {
+    height: 60vh;
+  }
+
+  .slide img {
+    object-fit: cover;
+    height: 60vh; 
+  }
+}
+
+/* Tablets - between 601px and 900px */
+@media screen and (max-width: 900px) {
+  .logo #lg {
+    height: 60px;
+  }
+
+  .slide .titleslider {
+    font-size: 30px;
+    text-align: center;
+    margin-top: -50px;
+  }
+
+  .slide .subtitleslider {
+    text-align: center;
+    font-size: 18px;
+    margin-top: -40px;
+  }
+
+  /* .cards,
+  .cardsProduct {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 20px;
+  } */
+
+  .sub-total,
+  .process-check .btn-process {
+    margin: 20px auto;
+  }
+}
+
+
+
+/* Modern iPhones (X, 11, 12, 13, 14 in portrait) */
+/* @media screen and (max-width: 430px) {
+  .slide .titleslider {
+    font-size: 22px;
+  }
+  .slide .subtitleslider {
+    font-size: 14px;
+  }
+} */
+
+/* Mobile & iPhone responsiveness for Hero section */
+@media screen and (max-width: 414px ) and (min-width:300px) {
+      .logo {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        margin: 0;
+        justify-content: center;
+        background-color: white;
+    }
+    .burger {
+        position: absolute;
+        right: 0px;
+        margin-right: 12px;
+        display: inline-block;
+    }
+    .navLinks {
+        position: absolute;
+        right: 0px;
+        width: 40%;
+        height: 40vh;
+        top: 10px;
+        margin-top: 40px;
+        background-color: white;
+        display: flex
+;
+        flex-direction: column;
+        align-items: center;
+        transform: translateX(100%);
+    }
+}
+
+/* Super small iPhones (SE, 5/6/7/8) */
+@media screen and (max-width: 375px) {
+  .slider {
+    width:375px ;
+    height: 55vh;
+  }
+
+  .slide .titleslider {
+    font-size: 18px;
+  }
+
+  .slide .subtitleslider {
+    font-size: 12px;
+  }
+
+  .ShopNow {
+    width: 120px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
