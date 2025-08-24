@@ -230,11 +230,11 @@ const Editproduct = ({userInfo}) => {
                          </InputGroup>
                          <Stack direction="row">
                       <Checkbox onChange = {() =>{checkboxhandlercg('Men');setMenselected(!Menselected)}} isChecked = {Menselected}>Men </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandlercg('Women') ; setWomenselected(!Watchesselected)}} isChecked = {Womenselected}>Women </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandlercg('Bag'); setBagselected(!Bagselected)}} isChecked = {Bagselected}>Bag </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandlercg('Watches') ; setWatchesselected(!Watchesselected)}} isChecked = {Watchesselected}>Watches </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandlercg('Shoes') ; setShoesselected(!Shoesselected)}} isChecked = {Shoesselected}>Shoes </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandlercg('Jacket') ; setJacketselected(!Jacketselected)}} isChecked = {Jacketselected}>Jacket </Checkbox>
+                                            <Checkbox onChange = {() =>{checkboxhandlercg('Women') ; setWomenselected(!Watchesselected)}} isChecked = {Womenselected}>Women </Checkbox>
+                                            <Checkbox onChange = {() =>{checkboxhandlercg('Kids'); setBagselected(!Bagselected)}} isChecked = {Bagselected}>Kids </Checkbox>
+                                            <Checkbox onChange = {() =>{checkboxhandlercg('Embroidery') ; setWatchesselected(!Watchesselected)}} isChecked = {Watchesselected}>Embroidery </Checkbox>
+                                            <Checkbox onChange = {() =>{checkboxhandlercg('ArtWorks') ; setShoesselected(!Shoesselected)}} isChecked = {Shoesselected}>ArtWorks </Checkbox>
+                                            <Checkbox onChange = {() =>{checkboxhandlercg('Content') ; setJacketselected(!Jacketselected)}} isChecked = {Jacketselected}>Content </Checkbox>
                       </Stack>
   
                           </Stack>
